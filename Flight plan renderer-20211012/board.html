@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>DroneChecker flight plan visualisation</title>
+    
+    <meta name="description" content="DroneChecker flight plan visualisation">
+    <meta name="author" content="Paul Dempster">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <style>
+      body {
+      margin: 0;
+      overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="canvas" width="1000px" height="1000px"></canvas>
+
+    <script src="board_app.js"></script>
+    <script>
+      ////////////////////////////////////////
+      // No-fly zones from test files
+      
+      var nofly_good_1 = [
+	{x: 500, y: 100, r: 55}
+      , {x: 300, y: 98, r: 90}
+      , {x: 456, y: 365, r: 44 }
+      ];
+
+      var nofly_good_2 = [
+	{x: 500, y: 100, r: 55}
+      , {x: 300, y: 98, r: 90}
+      , {x: 456, y: 365, r: 44 }
+      , {x: 320, y: 370, r: 8}
+      , {x: 180, y: 700, r: 32}
+      , {x: 320, y: 300, r: 40 }
+      ];
+
+      var nofly_empty = [
+      ];
+
+      ////////////////////////////////////////
+      // Flight plans from test files
+      
+      var flightplan_good_1 = [
+        {x: 500, y: 20}
+      , {x: 400, y: 100}
+      , {x: 460, y: 200}
+      , {x: 460, y: 276}
+      , {x: 325, y: 431}
+      ];
+
+      // bad flight plan from coursework sheet.
+      var flightplan_bad_1 = [
+        {x: 500, y: 20}
+      , {x: 300, y: 200}
+      , {x: 460, y: 200}
+      , {x: 460, y: 276}
+      , {x: 325, y: 431}
+      ];
+
+      var flightplan_good_2 = [
+        {x: 500, y: 20}
+      , {x: 400, y: 100}
+      , {x: 460, y: 200}
+      , {x: 460, y: 276}
+      , {x: 325, y: 431}
+      ];
+
+       var flightplan_square = [
+        {x: 200, y: 200}
+      , {x: 700, y: 200}
+      , {x: 700, y: 700}
+      , {x: 200, y: 700}
+      , {x: 200, y: 200}
+      ];
+
+        var flightplan_end = [
+        {x: 200, y: 200}
+      , {x: 250, y: 300}
+      , {x: 500, y: 600}
+      , {x: 480, y: 380}
+      ];
+
+      var flightplan_mid = [
+        {x: 200, y: 200}
+      , {x: 470, y: 300}
+      , {x: 500, y: 600}
+      , {x: 700, y: 700}
+      ];
+
+      var flightplan_mid_2 = [
+        {x: 200, y: 200}
+      , {x: 570, y: 400}
+      , {x: 500, y: 600}
+      , {x: 700, y: 700}
+      ];
+
+      var flightplan_mid_3 = [
+        {x: 200, y: 200}
+      , {x: 370, y: 400}
+      , {x: 500, y: 300}
+      , {x: 700, y: 700}
+      ];
+
+      var flightplan_shared = [
+        {x: 200, y: 200}
+      , {x: 470, y: 400}
+      , {x: 500, y: 600}
+      , {x: 700, y: 700}
+      ];
+
+      var flightplan_single = [
+        {x: 200, y: 200}
+      , {x: 500, y: 500}
+      ];
+
+      var flightplan_start = [
+        {x: 300, y: 100}
+      , {x: 250, y: 300}
+      , {x: 500, y: 600}
+      , {x: 700, y: 700}
+      ];
+
+      var flightplan_triple = [
+        {x: 200, y: 200}
+      , {x: 250, y: 300}
+      , {x: 500, y: 600}
+      , {x: 700, y: 700}
+      ];
+
+      var ready = function (fn) {
+         if (document.readyState === "complete") {
+            return fn();
+         }
+         document.addEventListener("DOMContentLoaded", fn, false);
+      };
+      
+      ready(function() {
+         console.log("board_app: starting...");
+
+         ////////////////////////////////////////
+         // change the variable names to draw a different scenario.
+         init(nofly_good_1, flightplan_good_1);
+      });
+    </script>
+  </body>
+</html>

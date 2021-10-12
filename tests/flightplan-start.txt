@@ -1,0 +1,5 @@
+# flight plan with a single segment
+300 100
+250 300
+500 600
+700 700

@@ -1,0 +1,5 @@
+# no fly zones
+# x y radius
+500 100 55
+300 98
+456 365 44
