@@ -1,4 +1,4 @@
-# Programming-and-Algorithms
+# Dronechecker
 
 <p>Coursework of Programming and Algorithms, in this course we used C programming language.</p>
 
